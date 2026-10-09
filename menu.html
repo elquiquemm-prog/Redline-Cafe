@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Explora el menú de Redline Café y arma tu pedido.">
+  <meta name="color-scheme" content="light">
+  <title>Menú y comprobante | Redline Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Saltar al contenido principal</a>
+  <header class="topbar" id="topbar">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Redline Café, inicio">
+        <span class="brand-mark">R</span><span class="brand-name">Redline<span>Café</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html" aria-current="page">Menú</a>
+        <a href="gaming.html">Gaming y ranking</a>
+        <a href="index.html#registro">Perfil</a>
+      </div>
+      <div class="nav-actions">
+        <button class="cart-button" id="openCartButton" type="button" aria-label="Abrir carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>
+          </svg>
+          <span class="cart-count" id="cartCount" aria-live="polite" aria-atomic="true">0</span>
+        </button>
+        <button class="button button-small mobile-essential" type="button" id="openRegistrationButton">Crear perfil</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+  <main id="mainContent" tabindex="-1">
+    <section class="section menu-section" id="menu">
+      <div class="container">
+        <div class="menu-header">
+          <div class="section-heading">
+            <span class="eyebrow">Menú Redline</span>
+
+            <h2>
+              La pausa
+              <br>perfecta.
+            </h2>
+
+            <p>
+              Café, sándwiches, una opción vegana y pan dulce
+              tradicional. Agrega productos al carrito y consulta
+              el comprobante de tu pedido.
+            </p>
+          </div>
+
+          <button
+            class="button button-outline"
+            type="button"
+            id="openCartButtonMenu"
+          >
+            Ver carrito
+          </button>
+        </div>
+
+        <div class="menu-filters" role="group" aria-label="Filtrar menú">
+          <button
+            class="filter-button active"
+            type="button"
+            data-filter="all"
+            aria-controls="menuGrid"
+            aria-pressed="true"
+          >
+            Todo
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="cafe"
+            aria-controls="menuGrid"
+            aria-pressed="false"
+          >
+            Café
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="sandwich"
+            aria-controls="menuGrid"
+            aria-pressed="false"
+          >
+            Sándwiches
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="pan dulce"
+            aria-controls="menuGrid"
+            aria-pressed="false"
+          >
+            Pan dulce
+          </button>
+
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="vegano"
+            aria-controls="menuGrid"
+            aria-pressed="false"
+          >
+            Opciones veganas
+          </button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <article class="menu-card" data-category="cafe">
+            <div class="menu-image">
+              <span class="menu-image-label">Café</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=85"
+                alt="Taza de café espresso"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Espresso</h3>
+                <span class="menu-price">$2.00</span>
+              </div>
+
+              <p>
+                Café intenso, breve y listo para arrancar.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Café</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Espresso"
+                  data-price="2.00"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="cafe">
+            <div class="menu-image">
+              <span class="menu-image-label">Café</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85"
+                alt="Café latte con leche"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Latte</h3>
+                <span class="menu-price">$3.50</span>
+              </div>
+
+              <p>
+                Café cremoso con leche y un toque de café intenso.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Café</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Latte"
+                  data-price="3.50"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="cafe">
+            <div class="menu-image">
+              <span class="menu-image-label">Café</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=85"
+                alt="Taza de té"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Tea</h3>
+                <span class="menu-price">$2.50</span>
+              </div>
+
+              <p>
+                Té refrescante y suave para mantenerse activo.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Café</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Tea"
+                  data-price="2.50"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="sandwich">
+            <div class="menu-image">
+              <span class="menu-image-label">Sándwich</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85"
+                alt="Hamburguesa con queso y vegetales"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Burger</h3>
+                <span class="menu-price">$5.50</span>
+              </div>
+
+              <p>
+                Sándwich de carne, queso y vegetales.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Sándwich</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Burger"
+                  data-price="5.50"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="sandwich">
+            <div class="menu-image">
+              <span class="menu-image-label">Sándwich</span>
+
+              <img
+                src="https://imag.bonviveur.com/sandwich-de-pollo.jpg"
+                alt="Sándwich de pollo con vegetales"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Chicken</h3>
+                <span class="menu-price">$6.00</span>
+              </div>
+
+              <p>
+                Pollo, vegetales y salsa en un sándwich clásico.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Sándwich</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Chicken"
+                  data-price="6.00"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="vegano">
+            <div class="menu-image">
+              <span class="menu-image-label">Vegano</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=85"
+                alt="Ensalada vegana con hummus"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Redline Vegano</h3>
+                <span class="menu-price">$5.00</span>
+              </div>
+
+              <p>
+                Ensalada con vegetales y hummus.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Vegano</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Redline Vegano"
+                  data-price="5.00"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="pan dulce">
+            <div class="menu-image">
+              <span class="menu-image-label">Pan dulce</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=85"
+                alt="Pan dulce tradicional"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Pan Dulce Tradicional</h3>
+                <span class="menu-price">$3.50</span>
+              </div>
+
+              <p>
+                Pan dulce clásico con frutos y sabores tradicionales.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Pan dulce</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Pan Dulce Tradicional"
+                  data-price="3.50"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="pan dulce">
+            <div class="menu-image">
+              <span class="menu-image-label">Pan dulce</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85"
+                alt="Pan dulce de chocolate"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Pan Dulce de Chocolate</h3>
+                <span class="menu-price">$4.00</span>
+              </div>
+
+              <p>
+                Pan dulce cremoso con chocolate y frutos secos.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Pan dulce</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Pan Dulce de Chocolate"
+                  data-price="4.00"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="pan dulce">
+            <div class="menu-image">
+              <span class="menu-image-label">Pan dulce</span>
+
+              <img
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=85"
+                alt="Pan dulce de frutos"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="menu-info">
+              <div class="menu-title-row">
+                <h3>Pan Dulce de Frutos</h3>
+                <span class="menu-price">$4.50</span>
+              </div>
+
+              <p>
+                Pan dulce con frutos frescos y salsa de yema.
+              </p>
+
+              <div class="menu-footer">
+                <span class="menu-category">Pan dulce</span>
+
+                <button
+                  class="add-button"
+                  type="button"
+                  data-product="Pan Dulce de Frutos"
+                  data-price="4.50"
+                >
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+<section class="section invoice-section" id="factura">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Tu pedido</span>
+
+          <h2>
+            Tu pedido,
+            <br>documentado.
+          </h2>
+
+          <p>
+            Revisa los productos, cantidades, precios y el nombre del
+            perfil activo. El comprobante no es una factura fiscal.
+          </p>
+        </div>
+
+        <div class="invoice-card">
+          <div class="invoice-header">
+            <div>
+              <h3>Comprobante Redline Café</h3>
+              <p id="invoiceClient">Cliente: Sin registro</p>
+            </div>
+
+            <div>
+              <strong id="invoiceDate">Fecha: —</strong>
+            </div>
+          </div>
+
+          <div
+            class="invoice-table-wrap"
+            role="region"
+            aria-label="Detalle del comprobante"
+          >
+            <table class="invoice-table">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+
+              <tbody id="invoiceItems">
+                <tr>
+                  <td colspan="4" class="invoice-empty">
+                    Tu carrito está vacío.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="invoice-total">
+            <span>Total</span>
+            <strong id="invoiceTotal">$0.00</strong>
+          </div>
+
+          <div class="invoice-actions">
+            <button
+              class="button"
+              type="button"
+              id="emitInvoiceButton"
+            >
+              Guardar pedido
+            </button>
+
+            <button
+              class="button button-outline"
+              type="button"
+              id="printInvoiceButton"
+            >
+              Imprimir comprobante
+            </button>
+
+            <button
+              class="button button-outline"
+              type="button"
+              id="clearCartButton"
+            >
+              Limpiar carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">R</span><span class="brand-name">Redline<span>Café</span></span></a><p>Café, gaming, lectura y cultura automotriz. Un espacio para disfrutar y compartir.</p></div>
+        <div class="footer-column"><h4>Explorar</h4><a href="index.html">Inicio</a><a href="menu.html">Menú y comprobante</a><a href="gaming.html">Gaming y ranking</a></div>
+        <div class="footer-column"><h4>Contacto</h4><a href="mailto:Redlinecafe123@gmail.com">Correo general: Redlinecafe123@gmail.com</a><a href="mailto:soporteredlinecafe@gmail.com">Soporte: soporteredlinecafe@gmail.com</a><a href="tel:78773313">Teléfono: 7877 3313</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Redline Café. Todos los derechos reservados.</span><span>Café · Gaming · Lectura</span></div>
+    </div>
+  </footer>
+  <div class="modal" id="registrationModal" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle" aria-describedby="registrationModalDescription">
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button><h2 class="modal-title" id="registrationModalTitle">Perfil Redline</h2><p class="modal-subtitle" id="registrationModalDescription">Solo necesitamos tu nombre para crear el perfil.</p>
+      <form id="registrationFormModal"><div class="form-field"><label for="modalUserName">Tu nombre</label><input id="modalUserName" name="userName" type="text" minlength="2" maxlength="80" autocomplete="name" required></div><div class="modal-actions"><button class="button" type="submit">Guardar perfil</button></div></form>
+    </div>
+  </div>
+  <div class="modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartModalTitle" aria-describedby="cartModalDescription">
+    <div class="modal-panel large"><button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button><h2 class="modal-title" id="cartModalTitle">Tu carrito</h2><p class="modal-subtitle" id="cartModalDescription">Ajusta cantidades y revisa el pedido.</p><div id="cartContent"></div><div class="modal-actions"><button class="button button-outline" id="clearCartModalButton" type="button">Vaciar carrito</button><a class="button" href="#factura" data-close-modal>Ver comprobante</a></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

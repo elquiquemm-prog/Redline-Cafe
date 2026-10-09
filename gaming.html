@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#211c18">
+  <meta name="description" content="Registra manualmente resultados de carreras y consulta el ranking de mejores tiempos de Redline Café.">
+  <meta name="color-scheme" content="light">
+  <title>Gaming y ranking | Redline Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Saltar al contenido principal</a>
+  <header class="topbar" id="topbar">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Redline Café, inicio"><span class="brand-mark">R</span><span class="brand-name">Redline<span>Café</span></span></a>
+      <div class="nav-links" id="navLinks"><a href="index.html">Inicio</a><a href="menu.html">Menú</a><a href="gaming.html" aria-current="page">Gaming y ranking</a><a href="index.html#registro">Perfil</a></div>
+      <div class="nav-actions"><button class="button button-small mobile-essential" type="button" id="openRegistrationButton">Crear perfil</button><button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+    </nav>
+  </header>
+  <main id="mainContent" tabindex="-1">
+    <section class="section gaming-section" id="juego">
+      <div class="container gaming-layout">
+        <div class="gaming-copy">
+          <span class="eyebrow">Redline leaderboard</span>
+          <h1 class="gaming-page-title">Tu tiempo.<br><span>Tu lugar.</span></h1>
+          <p>Registra a mano el resultado real de cada participante. Esta página no inventa tiempos ni victorias: el ranking se construye solo con los registros ingresados.</p>
+          <div class="game-features">
+            <div class="game-feature"><span>1</span>Selecciona un perfil</div>
+            <div class="game-feature"><span>2</span>Ingresa el resultado</div>
+            <div class="game-feature"><span>3</span>Guarda tu resultado</div>
+            <div class="game-feature"><span>4</span>Consulta el ranking</div>
+          </div>
+        </div>
+        <div class="game-panel">
+          <div class="game-panel-header"><h2>Registrar resultado</h2><span class="status-chip">Manual</span></div>
+          <p id="gameProfile" class="game-action-description">Perfil activo: ninguno. Crea o selecciona un perfil.</p>
+          <form id="resultForm">
+            <input id="editingResultId" type="hidden">
+            <div class="form-field"><label for="resultUser">Participante</label><select id="resultUser" required></select></div>
+            <div class="form-field"><label for="resultChallenge">Desafío</label><select id="resultChallenge" required><option value="prueba-tiempo">Prueba de tiempo</option><option value="blacklist">Desafío contra el jefe</option></select></div>
+            <div class="form-field" id="timeResultField"><label for="resultTime">Tiempo de vuelta (MM:SS.xx)</label><input id="resultTime" type="text" inputmode="decimal" placeholder="01:24.82" maxlength="9" pattern="[0-9]{1,2}:[0-5][0-9]\.[0-9]{2}" aria-describedby="timeHint"><small id="timeHint">Escribe el tiempo que se obtuvo en la prueba.</small></div>
+            <div class="form-field" id="bossResultField" hidden><label for="resultBoss">Resultado del desafío</label><select id="resultBoss"><option value="Victoria">Victoria</option><option value="Derrota">Derrota</option></select></div>
+            <div class="modal-actions"><button class="button button-outline" id="cancelEditButton" type="button" hidden>Cancelar edición</button><button class="button" id="saveResultButton" type="submit">Guardar resultado manual</button></div>
+          </form>
+          <p class="game-result show" id="resultFeedback" role="status" aria-live="polite">Los resultados se registran manualmente.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section invoice-section" id="ranking">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Leaderboard</span><h2>Mejores tiempos</h2><p>Ordenado de menor a mayor. Solo aparecen tiempos válidos registrados manualmente.</p></div>
+        <div class="invoice-card">
+          <div class="invoice-table-wrap" role="region" aria-label="Ranking de tiempos">
+            <table class="invoice-table ranking-table"><thead><tr><th>Posición</th><th>Participante</th><th>Mejor tiempo</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="leaderboardBody"><tr><td class="invoice-empty" colspan="5">Aún no hay tiempos manuales.</td></tr></tbody></table>
+          </div>
+        </div>
+        <div class="section-heading game-history-heading"><span class="eyebrow">Historial</span><h2>Resultados de jefe</h2><p>Victorias y derrotas que registraste manualmente. Puedes corregirlos o eliminarlos.</p></div>
+        <div class="invoice-card">
+          <div class="invoice-table-wrap" role="region" aria-label="Resultados del desafío contra el jefe">
+            <table class="invoice-table ranking-table"><thead><tr><th>Participante</th><th>Resultado</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="bossResultsBody"><tr><td class="invoice-empty" colspan="4">Aún no hay resultados manuales.</td></tr></tbody></table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-grid">
+    <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">R</span><span class="brand-name">Redline<span>Café</span></span></a><p>Café, gaming, lectura y cultura automotriz. Un espacio para disfrutar y compartir.</p></div>
+    <div class="footer-column"><h4>Explorar</h4><a href="index.html">Inicio</a><a href="menu.html">Menú y comprobante</a><a href="gaming.html">Gaming y ranking</a></div>
+    <div class="footer-column"><h4>Contacto</h4><a href="mailto:Redlinecafe123@gmail.com">Correo general: Redlinecafe123@gmail.com</a><a href="mailto:soporteredlinecafe@gmail.com">Soporte: soporteredlinecafe@gmail.com</a><a href="tel:78773313">Teléfono: 7877 3313</a></div>
+  </div><div class="footer-bottom"><span>© <span id="year"></span> Redline Café. Todos los derechos reservados.</span><span>Café · Gaming · Lectura</span></div></div></footer>
+  <div class="modal" id="registrationModal" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle" aria-describedby="registrationModalDescription"><div class="modal-panel"><button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button><h2 class="modal-title" id="registrationModalTitle">Perfil Redline</h2><p class="modal-subtitle" id="registrationModalDescription">Crea un perfil para asociarlo con tus resultados.</p><form id="registrationFormModal"><div class="form-field"><label for="modalUserName">Nombre del participante</label><input id="modalUserName" name="userName" type="text" minlength="2" maxlength="80" autocomplete="name" required></div><div class="modal-actions"><button class="button" type="submit">Guardar perfil</button></div></form></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
